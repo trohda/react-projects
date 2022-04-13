@@ -1,9 +1,9 @@
 {
-    "todo": [
-        {
-            "name": "Create React App",
-            "isCompleted": false,
-            "id": 1
-        }
-    ]
+  "todo": [
+    {
+      "name": "Create React App",
+      "isCompleted": false,
+      "id": 1
+    }
+  ]
 }

@@ -1,25 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 
-const TodoList = () => {
-  const [toDos, setToDos] = useState([]);
+const TodoList = ({toDos,fetchData}) => {
+  
+  useEffect(fetchData, []);
+  
+  const toDosRender = ()=>toDos.map((el) => (
+    <div key={el.id}>
+      <p>{el.name}</p>
+    </div>
+  ))
 
-  useEffect(() => {
-    fetch("http://localhost:8000/todo")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setToDos(data);
-      });
-  }, []);
+  
   return (
-    <>
-      {toDos.map((el) => (
-        <div key={el.id}>
-          <p>{el.name}</p>
-        </div>
-      ))}
-    </>
+    <div>
+      {toDosRender()}
+    </div>
   );
 };
 
