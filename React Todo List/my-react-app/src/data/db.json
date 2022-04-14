@@ -1,9 +1,39 @@
 {
   "todo": [
     {
-      "name": "Create React App",
-      "isCompleted": false,
+      "name": "Nowe",
+      "isCompleted": true,
       "id": 1
+    },
+    {
+      "name": "nowe1",
+      "isCompleted": true,
+      "id": 2
+    },
+    {
+      "name": "Nowe2",
+      "isCompleted": true,
+      "id": 3
+    },
+    {
+      "name": "Nowe3",
+      "isCompleted": false,
+      "id": 4
+    },
+    {
+      "name": "Nowe 4",
+      "isCompleted": false,
+      "id": 5
+    },
+    {
+      "name": "nowe5",
+      "isCompleted": false,
+      "id": 6
+    },
+    {
+      "name": "Nowe6",
+      "isCompleted": false,
+      "id": 7
     }
   ]
 }
