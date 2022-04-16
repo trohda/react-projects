@@ -18,9 +18,9 @@ const AddTodo = ({fetchData}) => {
 
     return ( 
        <div className="addTodo">
-            <form onSubmit={e=>taskAdder(e)}>
-                <input className="inputStyle" type="text" value={newTaskInput} onChange={e=>setNewTaskInput(e.target.value)}/>
-                <button type="submit" >Add Task</button>
+            <form className="addTodoFormStyle" onSubmit={e=>taskAdder(e)}>
+                <textarea className="inputStyle" type="text" value={newTaskInput} onChange={e=>setNewTaskInput(e.target.value)}/>
+                <button className="addTaskButton" type="submit" >Add Task</button>
             </form>
 
        </div>

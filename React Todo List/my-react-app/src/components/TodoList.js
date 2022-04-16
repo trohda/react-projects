@@ -10,7 +10,7 @@ const TodoList = ({ toDos, fetchData }) => {
     toDos.map((el,indx) => {
       return (
         <div id={el.id} className={toDos[indx].isCompleted ? "taskDone" : "task" } >
-          <Task id={el.id} name={el.name} fetchData={fetchData} toDos={toDos}/>
+          <Task id={el.id} name={el.name} fetchData={fetchData} toDos={toDos} indx={indx}/>
         </div>
       );
     });

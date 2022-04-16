@@ -1,14 +1,14 @@
 
-const Task = ({id, name, fetchData, toDos}) => {
+const Task = ({id, name, fetchData, toDos, indx}) => {
     
     const handlerDoneChange = async (e, el) => {
         e.preventDefault();
-    
+        
         fetch(`http://localhost:8000/todo/${el}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            isCompleted: toDos[el - 1].isCompleted ? false : true,
+            isCompleted: toDos[indx].isCompleted ? false : true,
           }),
         });
         await fetchData();
