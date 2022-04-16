@@ -1,8 +1,11 @@
 import { useState } from "react";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
+import style from "./components/TaskStyles.css";
+
 
 function App() {
+
   const [toDos, setToDos] = useState([]);
   
   const fetchData = () =>{
@@ -14,10 +17,11 @@ function App() {
       setToDos(data);
     });
   }
+  
   return (
     <div>
-      <AddTodo toDos={toDos} setToDos={setToDos} fetchData={fetchData}/>
-      <TodoList toDos={toDos} setToDos={setToDos} fetchData={fetchData}/>
+      <AddTodo fetchData={fetchData} />
+      <TodoList toDos={toDos} setToDos={setToDos} fetchData={fetchData} />
     </div>
   );
 }

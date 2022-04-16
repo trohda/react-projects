@@ -1,39 +1,24 @@
 {
   "todo": [
     {
-      "name": "Nowe",
+      "name": "New Task number 1",
       "isCompleted": true,
       "id": 1
     },
     {
-      "name": "nowe1",
-      "isCompleted": true,
+      "name": "Another Task number 2",
+      "isCompleted": false,
       "id": 2
     },
     {
-      "name": "Nowe2",
+      "name": "Task 3",
       "isCompleted": true,
       "id": 3
     },
     {
-      "name": "Nowe3",
-      "isCompleted": false,
+      "name": "Task5",
+      "isCompleted": true,
       "id": 4
-    },
-    {
-      "name": "Nowe 4",
-      "isCompleted": false,
-      "id": 5
-    },
-    {
-      "name": "nowe5",
-      "isCompleted": false,
-      "id": 6
-    },
-    {
-      "name": "Nowe6",
-      "isCompleted": false,
-      "id": 7
     }
   ]
 }
