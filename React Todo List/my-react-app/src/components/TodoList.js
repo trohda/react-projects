@@ -1,12 +1,9 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import Task from "./Task";
-
 
 const TodoList = ({ toDos, fetchData }) => {
   useEffect(fetchData, []);
-
-
-  const toDosRender = () =>
+  const toDosRender = () =>   
     toDos.map((el,indx) => {
       return (
         <div id={el.id} className={toDos[indx].isCompleted ? "taskDone" : "task" } >
@@ -14,9 +11,6 @@ const TodoList = ({ toDos, fetchData }) => {
         </div>
       );
     });
-
-    
-
   return (
   <div className="tasksList" >
   {toDosRender()}
