@@ -7,12 +7,12 @@
     },
     {
       "name": "Brand new Taks 2",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 2
     },
     {
       "name": "Brand New Taks 3",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 3
     }
   ]

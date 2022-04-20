@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Task = ({id, name, fetchData, toDos, indx}) => {
+const Task = ({id, name, fetchData, toDos, indx, done}) => {
     const [toggle, setToggle] = useState(true)
     const [task, setTask] = useState(name)
     
@@ -39,6 +39,7 @@ const Task = ({id, name, fetchData, toDos, indx}) => {
     }
     return (
       <>
+      
         {toggle ? 
         (<p
           onDoubleClick={() => {
