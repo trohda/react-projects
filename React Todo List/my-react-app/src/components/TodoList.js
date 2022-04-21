@@ -3,7 +3,7 @@ import Task from "./Task";
 
 const TodoList = ({ toDos, fetchData }) => {
   const [active, setActive] = useState(false);
-  const [all, setAll] = useState(false);
+  const [all, setAll] = useState(true);
   const [done, setDone] = useState(false);
 
   useEffect(fetchData, []);
@@ -14,14 +14,14 @@ const TodoList = ({ toDos, fetchData }) => {
         done ? 
         
       (toDos[indx].isCompleted ? <div id={el.id} className={toDos[indx].isCompleted ? "taskDone" : "task" } >
-        <Task id={el.id} name={el.name} fetchData={fetchData} toDos={toDos} indx={indx} done={done}/>
+        <Task id={el.id} name={el.name} fetchData={fetchData} toDos={toDos} indx={indx}/>
       </div> : null)
       : active ?
       (!toDos[indx].isCompleted ? <div id={el.id} className={toDos[indx].isCompleted ? "taskDone" : "task" } >
-      <Task id={el.id} name={el.name} fetchData={fetchData} toDos={toDos} indx={indx} done={done}/>
+      <Task id={el.id} name={el.name} fetchData={fetchData} toDos={toDos} indx={indx}/>
     </div> : null)
       : <div id={el.id} className={toDos[indx].isCompleted ? "taskDone" : "task" } >
-      <Task id={el.id} name={el.name} fetchData={fetchData} toDos={toDos} indx={indx} done={done}/>
+      <Task id={el.id} name={el.name} fetchData={fetchData} toDos={toDos} indx={indx}/>
       </div>
       );
     });
@@ -34,6 +34,7 @@ const TodoList = ({ toDos, fetchData }) => {
       setActive(false);
     } else if(done ===true){
       setDone(false)
+      setAll(true)
     } 
   }
 
@@ -54,18 +55,35 @@ const TodoList = ({ toDos, fetchData }) => {
       setAll(false);
     }else if (active===true){
       setActive(false)
+      setAll(true)
     }
+  }
+
+  const deleteAllDone = (e)=> {
+    toDos.map(el => {
+      el.isCompleted ? 
+        fetch(`http://localhost:8000/todo/${el.id}`, {
+          method: "DELETE",
+        })
+      :
+      fetchData();
+      e.preventDefault();
+
+      }
+    )
   }
 
   return (
   <div className="tasksList" >
-  <div className="options">
-    <button className={all ? "completedButtonActive" : "completedButtonNonActive"} onClick={handlerAllView}>All</button>
-    <button className={done ? "completedButtonActive" : "completedButtonNonActive"} onClick={handlerCompletedView}>Completed</button>
-    <button className={active ? "completedButtonActive" : "completedButtonNonActive"} onClick={handlerActiveView}>Active</button>
-
+    <div className="options">
+      <button className={all ? "completedButtonActive" : "completedButtonNonActive"} onClick={handlerAllView}>All</button>
+      <button className={done ? "completedButtonActive" : "completedButtonNonActive"} onClick={handlerCompletedView}>Done</button>
+      <button className={active ? "completedButtonActive" : "completedButtonNonActive"} onClick={handlerActiveView}>Active</button>
   </div>
-  {toDosRender()}
+    {toDosRender()}
+    <div className="deleteAllDone">
+      <button className="deleteButton" onClick={(e)=>deleteAllDone(e)}>Delete all done tasks</button>
+    </div>
   </div>
   )
 };

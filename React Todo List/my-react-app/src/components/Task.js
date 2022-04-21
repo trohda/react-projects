@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Task = ({id, name, fetchData, toDos, indx, done}) => {
+const Task = ({id, name, fetchData, toDos, indx}) => {
     const [toggle, setToggle] = useState(true)
     const [task, setTask] = useState(name)
     
@@ -63,7 +63,7 @@ const Task = ({id, name, fetchData, toDos, indx, done}) => {
             }
           }}
         />)}
-        <div>
+        <div className="doneDeleteButtons">
           <button
             className="doneButton"
             id={id}

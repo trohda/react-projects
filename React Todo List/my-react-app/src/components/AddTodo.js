@@ -2,17 +2,18 @@ import { useState } from "react";
 
 const AddTodo = ({fetchData}) => {
     const [newTaskInput,setNewTaskInput] = useState('')
-    
-    const taskAdder = async (e)=>{
+      
+    const taskAdder =(e)=>{
         fetch('http://localhost:8000/todo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: newTaskInput, isCompleted: false })
         })
+        .then (()=>
+        fetchData())
         
         e.preventDefault();
         setNewTaskInput('');
-        await fetchData();
     }
     
 
