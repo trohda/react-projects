@@ -1,54 +1,56 @@
 import { useState } from "react";
 
-const Task = ({id, name, fetchData, toDos, indx}) => {
-    const [toggle, setToggle] = useState(true)
-    const [task, setTask] = useState(name)
-    
-    const handlerEdit = async (e, el) => {
-      e.preventDefault();
-      
-      fetch(`http://localhost:8000/todo/${el}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: task,
-        }),
-      });
-      await fetchData();
-    };  
+const Task = ({ id, name, fetchData, toDos, indx, isCompleted }) => {
+  const [toggle, setToggle] = useState(true);
+  const [task, setTask] = useState(name);
 
-    const handlerDoneChange = async (e, el) => {
-        e.preventDefault();
-        
-        fetch(`http://localhost:8000/todo/${el}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            isCompleted: toDos[indx].isCompleted ? false : true,
-          }),
-        });
-        await fetchData();
-      };   
+  const handlerEdit = async (e, el) => {
+    e.preventDefault();
 
-    const handlerDelete = async (e,el) => {
-      e.preventDefault();
-      fetch(`http://localhost:8000/todo/${el}`, {
-          method: "DELETE",
-        });
-      await fetchData();
-    }
-    return (
-      <>
-      
-        {toggle ? 
-        (<p
+    fetch(`http://localhost:8000/todo/${el}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: task,
+      }),
+    });
+    await fetchData();
+  };
+
+  const handlerDoneChange = async (e, el) => {
+    e.preventDefault();
+
+    fetch(`http://localhost:8000/todo/${el}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        isCompleted: toDos[indx].isCompleted ? false : true,
+      }),
+    });
+
+    await fetchData();
+  };
+
+  const handlerDelete = async (e, el) => {
+    e.preventDefault();
+    fetch(`http://localhost:8000/todo/${el}`, {
+      method: "DELETE",
+    });
+    await fetchData();
+  };
+
+  return (
+    <>
+      {toggle ? (
+        <p
           onDoubleClick={() => {
             setToggle(false);
           }}
         >
           {task}
-        </p>):
-        (<input
+        </p>
+      ) : (
+        <input
           type="text"
           value={task}
           onChange={(event) => {
@@ -57,31 +59,32 @@ const Task = ({id, name, fetchData, toDos, indx}) => {
           onKeyDown={(event) => {
             if (event.key === "Enter") {
               setToggle(true);
-              handlerEdit(event, id )
+              handlerEdit(event, id);
               event.preventDefault();
               event.stopPropagation();
             }
           }}
-        />)}
-        <div className="doneDeleteButtons">
-          <button
-            className="doneButton"
-            id={id}
-            onClick={(e) => handlerDoneChange(e, id)}
-          >
-            Done
-          </button>
+        />
+      )}
+      <div className="doneDeleteButtons">
+        <button
+          className="doneButton"
+          id={id}
+          onClick={(e) => handlerDoneChange(e, id)}
+        >
+          {!isCompleted ? "Mark as Done" : "Mark as UnDone"}
+        </button>
 
-          <button
-            className="deleteButton"
-            id={id}
-            onClick={(e) => handlerDelete(e, id)}
-          >
-            Delete
-          </button>
-        </div>
-      </>
-    );
-}
- 
+        <button
+          className="deleteMarkButton"
+          id={id}
+          onClick={(e) => handlerDelete(e, id)}
+        >
+          Delete
+        </button>
+      </div>
+    </>
+  );
+};
+
 export default Task;

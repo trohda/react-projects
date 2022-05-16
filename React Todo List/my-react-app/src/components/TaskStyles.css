@@ -1,195 +1,201 @@
+.header {
+  text-shadow: 0px 0px 3px rgba(136, 136, 136, 0.75);
+  text-align: center;
+}
 .addTodo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 35px;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 35px;
 }
 
 .task {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 85%;
-    border-bottom: 1px solid lightgray;
-    font-size: 18px;
-    text-shadow: 0px 0px 3px rgba(136,136,136,.75);
-    padding: 5px;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  border-bottom: 1px solid lightgray;
+  font-size: 18px;
+  text-shadow: 0px 0px 3px rgba(136, 136, 136, 0.75);
+  padding: 5px;
 }
 
-.taskDone{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 85%;
-    border-bottom: 1px solid lightgray;
-    font-size: 18px;
-    text-shadow: 0px 0px 0px rgba(136,136,136,.75);
-    
-    
+.addNewTaskLabel {
+  font-size: 24px;
+  text-shadow: 0px 0px 3px rgba(136, 136, 136, 0.75);
+}
+
+.taskDone {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  border-bottom: 1px solid lightgray;
+  font-size: 18px;
+  text-shadow: 0px 0px 0px rgba(136, 136, 136, 0.75);
 }
 .taskDone p {
-    text-decoration: line-through;
-    color: lightgrey;
-   
+  text-decoration: line-through;
+  color: lightgrey;
 }
-
-
 
 .tasksList {
-    position: relative;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+  border-radius: 20px;
+  margin: 10px auto;
+  padding: 30px 30px 40px 30px;
+  background-color: #f1f1f1;
+  -webkit-box-shadow: 11px 13px 41px -21px rgba(132, 133, 159, 1);
+  -moz-box-shadow: 11px 13px 41px -21px rgba(132, 133, 159, 1);
+  box-shadow: 11px 13px 41px -21px rgba(132, 133, 159, 1);
+}
+
+.doneDeleteButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+@media only screen and (max-width: 400px) {
+  .doneDeleteButtons {
     display: flex;
     flex-direction: column;
-    align-items: center ; 
-    width: 70vw;
-    border-radius: 20px;
-    margin: 10px auto;
-    padding:30px 30px 40px 30px;
-    background-color: #f1f1f1;
-    -webkit-box-shadow: 11px 13px 41px -21px rgba(132, 133, 159, 1);
-    -moz-box-shadow: 11px 13px 41px -21px rgba(132, 133, 159, 1);
-    box-shadow: 11px 13px 41px -21px rgba(132, 133, 159, 1);
-
-}
-
-.doneDeleteButtons{
-    display: flex;
-    flex-direction: row;
-    gap: 5px
-}
-@media only screen and (max-width: 400px) {
-    .doneDeleteButtons{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    align-items: center;
   }
-
+}
 
 .doneButton {
-	box-shadow: 0px 0px 0px 0px #3dc21b;
-	background-color:rgba(0, 187, 31, 0.5);
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Trebuchet MS;
-	font-size:16px;
-	padding:4px 9px;
-	text-decoration:none;
-	text-shadow:0px 1px 6px #2f6627;
-    /* margin: 5px; */
+  box-shadow: 0px 0px 0px 0px #3dc21b;
+  background-color: rgba(0, 187, 31, 0.5);
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 16px;
+  padding: 4px 9px;
+  text-decoration: none;
+  text-shadow: 0px 1px 6px #2f6627;
+  /* margin: 5px; */
 }
 .doneButton:hover {
-	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-	background-color:#5cbf2a;
+  background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+  background-color: #5cbf2a;
 }
 
-.deleteButton {
-	box-shadow: 0px 0px 0px 0px #c21b1b;
-	background-color: rgba(248, 37, 0, 0.5); 
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Trebuchet MS;
-	font-size:16px;
-	padding:4px 9px;
-	text-decoration:none;
-	text-shadow:0px 1px 6px #fa0000;
-    /* margin-bottom: 5px; */
+.deleteMarkButton {
+  display: block;
+  box-shadow: 0px 0px 0px 0px #c21b1b;
+  background-color: rgba(248, 37, 0, 0.5);
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 16px;
+  padding: 4px 9px;
+  text-decoration: none;
+  text-shadow: 0px 1px 6px #fa0000;
 }
 .deleteButton:hover {
-	background:linear-gradient(to bottom, #e65c5c 5%, #e62933 100%);
-	background-color:#e65c5c;
+  background: linear-gradient(to bottom, #e65c5c 5%, #e62933 100%);
+  background-color: #e65c5c;
 }
 
 .addTaskButton {
-	box-shadow: 0px 0px 0px 1px #808080;
-    width: 45%;
-	background-color: rgba(161, 161, 161, 0.5); 
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Trebuchet MS;
-	font-size:16px;
-	padding:6px 11px;
-	text-decoration:none;
-	text-shadow:0px 1px 6px #5c5c5c;
-    margin-left: 5px;
+  box-shadow: 0px 0px 0px 1px #808080;
+  width: 45%;
+  background-color: rgba(161, 161, 161, 0.5);
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 16px;
+  padding: 6px 11px;
+  text-decoration: none;
+  text-shadow: 0px 1px 6px #5c5c5c;
+  margin-left: 5px;
 }
 .addTaskButton:hover {
-	background:linear-gradient(to bottom, #adadad 5%, #505050 100%);
-	background-color:#777777;
+  background: linear-gradient(to bottom, #adadad 5%, #505050 100%);
+  background-color: #777777;
 }
 
-.addTodoFormStyle{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 40%;
-    gap: 10px;
+.addTodoFormStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  gap: 10px;
 }
 
 .inputStyle {
-    width: 90%;
-    height: 80px;
-    padding: 8px;
-    font-size: 18px;
-    border-width: 2px;
-    border-color: #CCCCCC;
-    background-color: #f1f1f1;
-    color: #000000;
-    border-style: solid;
-    border-radius: 9px;
-    box-shadow: 2px 5px 14px rgba(106,106,106,.24);
-    text-shadow: 0px 0px 3px rgba(136,136,136,.75);
+  width: 90%;
+  height: 80px;
+  padding: 8px;
+  font-size: 18px;
+  border-width: 2px;
+  border-color: #cccccc;
+  background-color: #f1f1f1;
+  color: #000000;
+  border-style: solid;
+  border-radius: 9px;
+  box-shadow: 2px 5px 14px rgba(106, 106, 106, 0.24);
+  text-shadow: 0px 0px 3px rgba(136, 136, 136, 0.75);
 }
 
-.options{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 30%;
-    padding: 5px;
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%;
+  padding: 5px;
 }
 
-.completedButtonActive{
-    box-shadow: 0px 0px 0px 1px #808080;
-	background-color: rgba(161, 161, 161, 0.5); 
-    border: 1px solid black;
-	border-radius:6px;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:Trebuchet MS;
-	font-size:12px;
-	padding:3px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 6px #5c5c5c;
-    margin:0 5px;
+.completedButtonActive {
+  box-shadow: 0px 0px 0px 1px #808080;
+  background-color: rgba(161, 161, 161, 0.5);
+  border: 1px solid black;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
+  font-family: Trebuchet MS;
+  font-size: 12px;
+  padding: 3px 5px;
+  text-decoration: none;
+  text-shadow: 0px 1px 6px #5c5c5c;
+  margin: 0 5px;
 }
 
-.completedButtonNonActive{
-    box-shadow: 0px 0px 0px 1px #808080;
-	background-color: rgba(243, 243, 243, 0.5); 
-	border-radius:6px;
-    border: 1px solid rgb(145, 145, 145);
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Trebuchet MS;
-	font-size:12px;
-	padding:3px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 6px #5c5c5c;
-    margin:0 5px;
+.completedButtonNonActive {
+  box-shadow: 0px 0px 0px 1px #808080;
+  background-color: rgba(243, 243, 243, 0.5);
+  border-radius: 6px;
+  border: 1px solid rgb(145, 145, 145);
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 12px;
+  padding: 3px 5px;
+  text-decoration: none;
+  text-shadow: 0px 1px 6px #5c5c5c;
+  margin: 0 5px;
 }
 
-.deleteAllDone {
-    padding-top: 10px;
+.deleteMarkAll {
+  width: 50%;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 3px;
 }
