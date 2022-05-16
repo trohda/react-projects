@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Task from "./Task";
 
-const TodoList = ({ toDos, fetchData }) => {
+const TodoList = ({ toDos, fetchData, counter }) => {
   const [active, setActive] = useState(false);
   const [all, setAll] = useState(true);
   const [done, setDone] = useState(false);
@@ -117,6 +117,13 @@ const TodoList = ({ toDos, fetchData }) => {
     await fetchData();
   };
 
+  // console.log(
+  //   count().reduce((a, b, c, d) => {
+  //     console.log(a, b);
+  //     return a + b;
+  //   })
+  // );
+
   return (
     <div className="tasksList">
       <div className="options">
@@ -153,6 +160,7 @@ const TodoList = ({ toDos, fetchData }) => {
           Mark all as done
         </button>
       </div>
+      <div className="counter">{`You have ${counter} tasks left to do.`}</div>
     </div>
   );
 };
